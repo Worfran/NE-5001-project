@@ -105,4 +105,6 @@ flycheck_*.el
 .history
 .ionide
 
+/build/
+
 # End of https://www.toptal.com/developers/gitignore/api/emacs,visualstudiocode,c++
