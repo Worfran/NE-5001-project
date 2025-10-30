@@ -112,17 +112,17 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
       = new G4Box("firstArmBox",0.5*m,0.5*m,0.5*m);
     G4LogicalVolume* firstArmLogical
       = new G4LogicalVolume(firstArmSolid,air,"firstArmLogical");
-    new G4PVPlacement(0,G4ThreeVector(0.,0.,-0.5*m),firstArmLogical,
+    new G4PVPlacement(0,G4ThreeVector(0.,0.,-30*cm),firstArmLogical,
                       "firstArmPhysical",worldLogical,
                       false,0,checkOverlaps);
     
     // second arm
     G4VSolid* secondArmSolid 
-      = new G4Box("secondArmBox",2.*m,2.*m,3.5*m); // TO DO: adjust size as needed currently generating overlaps and outside range
+      = new G4Box("secondArmBox",10.*cm,10.*cm,10*cm); // TO DO: adjust size as needed currently generating overlaps and outside range
     G4LogicalVolume* secondArmLogical
       = new G4LogicalVolume(secondArmSolid,air,"secondArmLogical");
-    G4double x = -5.*m * std::sin(fArmAngle);
-    G4double z = 5.*m * std::cos(fArmAngle);
+    G4double x = -10.*cm * std::sin(fArmAngle);
+    G4double z = 10.*cm * std::cos(fArmAngle);
     fSecondArmPhys
       = new G4PVPlacement(fArmRotation,G4ThreeVector(x,0.,z),secondArmLogical,
                           "fSecondArmPhys",worldLogical,

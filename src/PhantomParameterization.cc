@@ -91,10 +91,19 @@ G4Material* PhantomParameterization
     visAttributes = new G4VisAttributes(G4Colour(1.0,0.0,0.0));
   } else if (iz > 0 && iz < 5  && iy > 1 && iy < 8 && ix > 1 && ix < 8) {
     mat = fMat[1];
-    visAttributes = new G4VisAttributes(G4Colour(0.0,0.0,1.0,0.1));
+    visAttributes = new G4VisAttributes(G4Colour(0.0,0.0,1.0,0.02));
   } else {
     mat = fMat[0];
-    visAttributes = new G4VisAttributes(G4Colour(1.0,1.0,1.0,0.1));
+    visAttributes = new G4VisAttributes(G4Colour(1.0,1.0,1.0,0.02));
+  }
+  
+  if (iz >= 10 && iz < 12 && iy >= 10 && iy < 13 && ix >= 10 && ix < 13) {
+    // tumor material (red)
+    mat = fMat[1];
+    visAttributes = new G4VisAttributes(G4Colour(1.0,0.0,0.0,0.1));
+  } else {
+    mat = fMat[0];
+    visAttributes = new G4VisAttributes(G4Colour(1.0,1.0,1.0,0.02));
   }
 
   visAttributes -> SetForceSolid(true);
@@ -102,6 +111,8 @@ G4Material* PhantomParameterization
 
   return mat;
 }
+
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //
