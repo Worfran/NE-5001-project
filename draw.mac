@@ -14,11 +14,12 @@
 /vis/scene/create
 /vis/sceneHandler/attach scene-1
 /score/colorMap/setMinMax ! 0. 800.
-/control/loop drawSlice.mac iColumn 0 10 3
+/control/loop drawSlice.mac iColumn 0 29 10
 #
 ########################################
 #
 # Dump scores to a file
 #
+/score/dumpQuantityToFile boxMesh_1 nOfStepGamma nOfStepGamma.txt
 #
 #

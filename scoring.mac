@@ -1,5 +1,3 @@
-/run/initialize
-
 ########################################
 #
 # define scoring mesh
@@ -31,13 +29,7 @@
 /run/beamOn 2000
 /vis/enable
 
-/vis/viewer/panTo -6 3 m
-/vis/viewer/zoomTo 4
-#/vis/viewer/set/viewpointThetaPhi 45 20
-########################################
-#
-# Dump scores to a file
-#
-/score/dumpQuantityToFile boxMesh_1 nOfStepGamma nOfStepGamma.txt
-#
+/vis/viewer/panTo -7 0 m
+/vis/viewer/zoom 7
+/vis/viewer/set/viewpointThetaPhi 45 20
 #/control/execute draw.mac
