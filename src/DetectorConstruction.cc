@@ -207,6 +207,18 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 void DetectorConstruction::ConstructSDandField()
 {
+  // sensitive detector -----------------------------------------------------
+  G4SDManager* SDman = G4SDManager::GetSDMpointer();
+  G4String SDname;
+ 
+  G4VSensitiveDetector* phantomSD = new PhantomSD(SDname="/phantom", 20, 20);
+  SDman->AddNewDetector(phantomSD);
+  fVoxelLogical->SetSensitiveDetector(phantomSD);
+ 
+ 
+  // Register the field and its manager for deleting
+  G4AutoDelete::Register(fMagneticField);
+  G4AutoDelete::Register(fFieldMgr); 
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

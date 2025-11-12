@@ -5,11 +5,11 @@
 /score/create/boxMesh boxMesh_1
 #
 #Create a mesh large as the box
-/score/mesh/boxSize 150. 30. 50. cm
+/score/mesh/boxSize 8. 8. 8. cm
 #Position it over the box
-/score/mesh/translate/xyz 0 0 8 m
+/score/mesh/translate/xyz 0 0 0 m
 #mesh voxel size of 5cm
-/score/mesh/nBin 30 6 10
+/score/mesh/nBin 20 20 20
 #
 /score/quantity/energyDeposit eDep
 /score/quantity/nOfStep nOfStepGamma
@@ -25,11 +25,11 @@
 
 /vis/disable
 /run/verbose 1
-/gun/particle e-
+/gun/particle p+
 /run/beamOn 2000
 /vis/enable
 
-/vis/viewer/panTo -7 0 m
+/vis/viewer/panTo 0 0 m
 /vis/viewer/zoom 7
 /vis/viewer/set/viewpointThetaPhi 45 20
 #/control/execute draw.mac
