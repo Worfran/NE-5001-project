@@ -46,6 +46,7 @@
 #include "G4PVParameterised.hh"
 #include "G4PVReplica.hh"
 #include "G4UserLimits.hh"
+#include "G4SDManager.hh"
 
 #include "G4RunManager.hh"
 #include "G4GenericMessenger.hh"
@@ -108,7 +109,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                           false,0,checkOverlaps);
     
     // first arm
-    G4VSolid* firstArmSolid 
+    /*G4VSolid* firstArmSolid 
       = new G4Box("firstArmBox",0.5*m,0.5*m,0.5*m);
     G4LogicalVolume* firstArmLogical
       = new G4LogicalVolume(firstArmSolid,air,"firstArmLogical");
@@ -126,7 +127,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     fSecondArmPhys
       = new G4PVPlacement(fArmRotation,G4ThreeVector(x,0.,z),secondArmLogical,
                           "fSecondArmPhys",worldLogical,
-                          false,0,checkOverlaps);
+                          false,0,checkOverlaps);*/
     
     
     // =============================================
@@ -166,7 +167,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     // Define a single voxel box
     G4String zVoxName("Voxel");
     G4VSolid* solVoxel = new G4Box(zVoxName, voxelSize.x() / 2., voxelSize.y() / 2., voxelSize.z() / 2.);
-    G4LogicalVolume* fVoxelLogical = new G4LogicalVolume(solVoxel, absorberMaterial, zVoxName);
+    fVoxelLogical = new G4LogicalVolume(solVoxel, absorberMaterial, zVoxName);
 
     // Create a vector containing the materials for the phantom
     std::vector<G4Material*> phantomMat(3);
@@ -190,8 +191,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     
     visAttributes = new G4VisAttributes(G4Colour(1.0,1.0,1.0));
     visAttributes->SetVisibility(false);
-    firstArmLogical->SetVisAttributes(visAttributes);
-    secondArmLogical->SetVisAttributes(visAttributes);
+    //firstArmLogical->SetVisAttributes(visAttributes);
+    //secondArmLogical->SetVisAttributes(visAttributes);
     fVisAttributes.push_back(visAttributes);
     
     visAttributes = new G4VisAttributes(G4Colour(0.8888,0.8888,0.0));
@@ -214,11 +215,7 @@ void DetectorConstruction::ConstructSDandField()
   G4VSensitiveDetector* phantomSD = new PhantomSD(SDname="/phantom", 20, 20);
   SDman->AddNewDetector(phantomSD);
   fVoxelLogical->SetSensitiveDetector(phantomSD);
- 
- 
-  // Register the field and its manager for deleting
-  G4AutoDelete::Register(fMagneticField);
-  G4AutoDelete::Register(fFieldMgr); 
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

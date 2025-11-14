@@ -77,6 +77,7 @@ private:
     G4double fArmAngle;
     G4RotationMatrix* fArmRotation;
     G4VPhysicalVolume* fSecondArmPhys;
+    G4LogicalVolume* fVoxelLogical;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
