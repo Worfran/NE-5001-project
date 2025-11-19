@@ -18,6 +18,7 @@
 /score/filter/particle eMinusFilter e-
 /score/quantity/nOfStep nOfStepEPlus
 /score/filter/particle ePlusFilter e+
+
 #
 /score/close
 #
@@ -28,6 +29,9 @@
 /gun/particle proton
 /run/beamOn 2000
 /vis/enable
+
+# Save energy deposition data to a file
+/score/dumpQuantityToFile boxMesh_1 eDep energy_deposition.txt
 
 /vis/viewer/panTo 0 0 m
 /vis/viewer/zoom 2

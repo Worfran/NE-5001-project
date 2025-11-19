@@ -14,7 +14,8 @@
 /vis/scene/create
 /vis/sceneHandler/attach scene-1
 /score/colorMap/setMinMax ! 0. 800.
-/control/loop drawSlice.mac iColumn 0 29 10
+/control/loop drawSlice.mac iColumn 0 19 2
+#/score/drawProjection boxMesh_1 eDep linear
 #
 ########################################
 #
