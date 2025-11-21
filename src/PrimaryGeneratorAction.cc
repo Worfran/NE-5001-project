@@ -113,8 +113,10 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     G4double pp = fMomentum + (G4UniformRand()-0.5)*fSigmaMomentum;
     G4double mass = particle->GetPDGMass();
     G4double Ekin = std::sqrt(pp*pp+mass*mass)-mass;
-    fParticleGun->SetParticleEnergy(Ekin);
-    
+    //fParticleGun->SetParticleEnergy(Ekin);
+    //
+    fParticleGun->SetParticleEnergy(75.*MeV);
+    //
     G4double angle = (G4UniformRand()-0.5)*fSigmaAngle;
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(std::sin(angle),0.,
                                                              std::cos(angle)));

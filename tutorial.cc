@@ -86,7 +86,7 @@ int main(int argc,char** argv)
     //====================
     //The Physics
     G4VModularPhysicsList* physicsList = new FTFP_BERT;
-    physicsList->RegisterPhysics(new G4StepLimiterPhysics());
+    //physicsList->RegisterPhysics(new G4StepLimiterPhysics());
     runManager->SetUserInitialization(physicsList);
     
     //====================
