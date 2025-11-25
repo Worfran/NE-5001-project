@@ -115,7 +115,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     G4double Ekin = std::sqrt(pp*pp+mass*mass)-mass;
     //fParticleGun->SetParticleEnergy(Ekin);
     //
-    fParticleGun->SetParticleEnergy(75.*MeV);
+    fParticleGun->SetParticleEnergy(76*MeV); // Maximum energy deposition for proton at the tumor.
     //
     G4double angle = (G4UniformRand()-0.5)*fSigmaAngle;
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(std::sin(angle),0.,
