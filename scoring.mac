@@ -26,7 +26,7 @@
 
 /vis/disable
 /run/verbose 1
-/gun/particle proton
+/gun/particle e-
 /run/beamOn 2000
 /vis/enable
 
