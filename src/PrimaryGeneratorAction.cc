@@ -115,11 +115,22 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     G4double Ekin = std::sqrt(pp*pp+mass*mass)-mass;
     //fParticleGun->SetParticleEnergy(Ekin);
     //
-    //fParticleGun->SetParticleEnergy(76*MeV); // Maximum energy deposition for proton at the tumor.
+    fParticleGun->SetParticleEnergy(76*MeV); // Maximum energy deposition for proton at the tumor.
     // electrons energies
     //fParticleGun->SetParticleEnergy(12*MeV); 
     //fParticleGun->SetParticleEnergy(15*MeV); 
-    fParticleGun->SetParticleEnergy(18*MeV); 
+    //fParticleGun->SetParticleEnergy(18*MeV); 
+
+    // Diameter of the beam
+    G4double beamRadius = 0.8 * cm; // Radius of the beam
+    G4double r = beamRadius * std::sqrt(G4UniformRand()); // Random radius within the circle
+    G4double theta = 2.0 * CLHEP::pi * G4UniformRand();   // Random angle
+    G4double x = r * std::cos(theta); // X position
+    G4double y = r * std::sin(theta); // Y position
+    G4double z = -32.0 * cm; 
+
+    fParticleGun->SetParticlePosition(G4ThreeVector(x, y, z));
+
 
     //
     G4double angle = (G4UniformRand()-0.5)*fSigmaAngle;
