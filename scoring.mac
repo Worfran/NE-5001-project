@@ -27,7 +27,7 @@
 /vis/disable
 /run/verbose 1
 /gun/particle proton
-/run/beamOn 2000
+/run/beamOn 10000
 /vis/enable
 
 # Save energy deposition data to a file
